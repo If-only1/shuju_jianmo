@@ -80,6 +80,7 @@ class Mynet1(nn.Module):
         return x
 
 
+
 model = Mynet1(13, 1000, 1)
 from torch.optim import *
 lr=0.001
