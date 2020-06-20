@@ -17,12 +17,14 @@ class Mlp(nn.Module):
         super(Mlp, self).__init__()
         self.fc1 = nn.Linear(8, hide_chanel)
         self.fc2 = nn.Linear(hide_chanel, 1)
+        self.reset_parameters()
 
     def forward(self, x):
         x = self.fc1(x)
         x = act_function(x)
         x = self.fc2(x)
         return x
+
 
 
 class Residual(nn.Module):  # 本类已保存在d2lzh_pytorch包中方便以后使用

@@ -2,16 +2,13 @@ from sklearn import datasets
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
-all_data = datasets.fetch_california_housing()
+all_data = datasets.fetch_california_housing(proprecessing=False)
 feature_names=all_data.feature_names
 target_names=all_data.target_names
 DESCR=all_data.DESCR
 # print(DESCR)
 x = all_data['data']
 y = all_data['target'].reshape(-1,1)
-
-
-#miao shu xing tongji
 df = pd.DataFrame(np.concatenate([x,y],axis=1),columns=feature_names+target_names)
 print(df.info())
 print(df.describe())
@@ -119,5 +116,5 @@ print(pre)
 test_loss=mean_squared_error(pre,test_data[:,-1:])
 print(test_loss)
 
-
+pd.to_pickle()
 
